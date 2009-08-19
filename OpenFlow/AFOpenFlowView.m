@@ -348,8 +348,8 @@ const static CGFloat kReflectionFraction = 0.85;
     
     // End of animation 
     // XXX This is more the end of touch as animation...
-//    if ([self.viewDelegate respondsToSelector:@selector(openFlowViewAnimationDidEnd:)])
-//        [self.viewDelegate openFlowViewAnimationDidEnd:self];    
+    if ([self.viewDelegate respondsToSelector:@selector(openFlowViewAnimationDidEnd:)])
+        [self.viewDelegate openFlowViewAnimationDidEnd:self];    
 }
 
 - (void)centerOnSelectedCover:(BOOL)animated {
