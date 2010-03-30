@@ -29,7 +29,7 @@
 
 @implementation AFOpenFlowViewController
 
-#error Change theses values to your Flickr API key & secret
+//#error Change theses values to your Flickr API key & secret
 #define flickrAPIKey @"MYAPIKEY"
 #define flickrAPISecret @"MYAPISECRET"
 
@@ -98,12 +98,16 @@
 	} else {
 		// Assume we're in the initial alert view.
 		if (buttonIndex == 0) {
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Disabled" message:@"Use sample images." delegate:nil cancelButtonTitle:@"Kay lol" otherButtonTitles:nil];
+			
 			// Ask flickr for images.
+			/*
 			flickrContext = [[OFFlickrAPIContext alloc] initWithAPIKey:flickrAPIKey 
 														  sharedSecret:flickrAPISecret];
 			interestingnessRequest = [[OFFlickrAPIRequest alloc] initWithAPIContext:flickrContext];
 			interestingnessRequest.delegate = self;
 			[interestingnessRequest callAPIMethodWithGET:@"flickr.interestingness.getList" arguments:nil];
+			 */
 		} else if (buttonIndex == 1) {
 			// Use sample images, but load them all at once.
 			NSString *imageName;
@@ -112,12 +116,10 @@
 				[(AFOpenFlowView *)self.view setImage:[UIImage imageNamed:imageName] forIndex:i];
 				[imageName release];
 			}
-			[(AFOpenFlowView *)self.view setNumberOfImages:30]; 
 		} else if (buttonIndex == 2) {
 			// Use sample images.
-			[(AFOpenFlowView *)self.view setNumberOfImages:30]; 
 		} 
-		
+		[(AFOpenFlowView *)self.view setNumberOfImages:30]; 
 	}
 }
 
