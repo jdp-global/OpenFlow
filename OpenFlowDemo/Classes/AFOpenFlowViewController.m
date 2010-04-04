@@ -166,6 +166,7 @@
   UILabel *flipView = [[UILabel alloc] init];
   flipView.text = @"O hai";
   flipView.backgroundColor = [UIColor cyanColor];
+  flipView.textAlignment = UITextAlignmentCenter;
   CGRect newFrame = openFlowView.selectedCoverView.frame;
   newFrame.size.height = 250;
   newFrame.size.width = 250;
