@@ -9,10 +9,10 @@
  * copies of the Software, and to permit persons to whom the
  * Software is furnished to do so, subject to the following
  * conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
  * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -38,16 +38,16 @@
 	[interestingPhotosDictionary release];
 	[flickrContext release];
 	[interestingnessRequest release];
-	
+
     [super dealloc];
 }
 
 - (void)awakeFromNib {
 	loadImagesOperationQueue = [[NSOperationQueue alloc] init];
-	UIAlertView *openFlowImageSourceAlertView = [[UIAlertView alloc] initWithTitle:@"OpenFlow Demo Data Source" 
-																		   message:@"Would you like to download images from Flickr or use 30 sample images included with this project?" 
-																		  delegate:self 
-																 cancelButtonTitle:@"Flickr" 
+	UIAlertView *openFlowImageSourceAlertView = [[UIAlertView alloc] initWithTitle:@"OpenFlow Demo Data Source"
+																		   message:@"Would you like to download images from Flickr or use 30 sample images included with this project?"
+																		  delegate:self
+																 cancelButtonTitle:@"Flickr"
 																 otherButtonTitles:@"Samples (all at once)", @"Samples (NSThread)", nil];
 	[openFlowImageSourceAlertView show];
 	[openFlowImageSourceAlertView release];
@@ -62,10 +62,10 @@
 
 - (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didFailWithError:(NSError *)inError {
 	NSLog(@"Flickr API request failed with error: %@", [inError description]);
-	UIAlertView *flickrErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Flickr API Error" 
-																   message:[inError description] 
-																  delegate:self 
-														 cancelButtonTitle:@"Quit" 
+	UIAlertView *flickrErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Flickr API Error"
+																   message:[inError description]
+																  delegate:self
+														 cancelButtonTitle:@"Quit"
 														 otherButtonTitles:@"Retry", nil];
 	[flickrErrorAlertView show];
 	[flickrErrorAlertView release];
@@ -77,10 +77,10 @@
 		alertString = @"Many thanks to Lukhnos D. Liu's ObjectiveFlickr library for making it easy to access Flickr's 'Interestingness' photo stream.";
 	else
 		alertString = @"Sample images included in this project are all in the public domain, courtesy of NASA.";
-	UIAlertView *infoAlertPanel = [[UIAlertView alloc] initWithTitle:@"OpenFlow Demo App" 
+	UIAlertView *infoAlertPanel = [[UIAlertView alloc] initWithTitle:@"OpenFlow Demo App"
 															 message:[NSString stringWithFormat:@"%@\n\nFor more info about the OpenFlow API, visit apparentlogic.com.", alertString]
-															delegate:nil 
-												   cancelButtonTitle:nil 
+															delegate:nil
+												   cancelButtonTitle:nil
 												   otherButtonTitles:@"Dismiss", nil];
 	[infoAlertPanel show];
 	[infoAlertPanel release];
@@ -99,10 +99,11 @@
 		// Assume we're in the initial alert view.
 		if (buttonIndex == 0) {
 			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Disabled" message:@"Use sample images." delegate:nil cancelButtonTitle:@"Kay lol" otherButtonTitles:nil];
-			
+			[alert show];
+      [alert release];
 			// Ask flickr for images.
 			/*
-			flickrContext = [[OFFlickrAPIContext alloc] initWithAPIKey:flickrAPIKey 
+			flickrContext = [[OFFlickrAPIContext alloc] initWithAPIKey:flickrAPIKey
 														  sharedSecret:flickrAPISecret];
 			interestingnessRequest = [[OFFlickrAPIRequest alloc] initWithAPIContext:flickrContext];
 			interestingnessRequest.delegate = self;
@@ -118,15 +119,15 @@
 			}
 		} else if (buttonIndex == 2) {
 			// Use sample images.
-		} 
-		[(AFOpenFlowView *)self.view setNumberOfImages:30]; 
+		}
+		[(AFOpenFlowView *)self.view setNumberOfImages:30];
 	}
 }
 
 - (void)imageDidLoad:(NSArray *)arguments {
 	UIImage *loadedImage = (UIImage *)[arguments objectAtIndex:0];
 	NSNumber *imageIndex = (NSNumber *)[arguments objectAtIndex:1];
-	
+
 	// Only resize our images if they are coming from Flickr (samples are already scaled).
 	// Resize the image on the main thread (UIKit is not thread safe).
 	if (interestingnessRequest)
@@ -152,7 +153,7 @@
 		NSURL *photoURL = [flickrContext photoSourceURLFromDictionary:photoDictionary size:OFFlickrMediumSize];
 		getImageOperation.imageURL = photoURL;
 	}
-	
+
 	[loadImagesOperationQueue addOperation:getImageOperation];
 	[getImageOperation release];
 }
