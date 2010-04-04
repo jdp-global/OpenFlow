@@ -161,5 +161,16 @@
 - (void)openFlowView:(AFOpenFlowView *)openFlowView selectionDidChange:(int)index {
 	NSLog(@"Cover Flow selection did change to %d", index);
 }
+- (void)openFlowView:(AFOpenFlowView *)openFlowView didTap:(int)index {
 
+  UILabel *flipView = [[UILabel alloc] init];
+  flipView.text = @"O hai";
+  flipView.backgroundColor = [UIColor cyanColor];
+  CGRect newFrame = openFlowView.selectedCoverView.frame;
+  newFrame.size.height = 250;
+  newFrame.size.width = 250;
+  flipView.frame = newFrame;
+  [openFlowView flipSelectedToView:flipView];
+  [flipView release];
+}
 @end
