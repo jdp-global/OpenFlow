@@ -269,7 +269,7 @@ const static CGFloat kReflectionFraction = 0.85;
 	// Which cover did the user tap?
 	CALayer *targetLayer = (CALayer *)[scrollView.layer hitTest:startPoint];
 	AFItemView *targetCover = [self findCoverOnscreen:targetLayer];
-	isDraggingACover = (targetCover != nil);
+	isDraggingACover = (targetCover != nil) && (!flipViewShown);
 
 	beginningCover = selectedCoverView.number;
 	// Make sure the user is tapping on a cover.
