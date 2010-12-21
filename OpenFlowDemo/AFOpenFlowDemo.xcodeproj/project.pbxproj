@@ -317,7 +317,14 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AFOpenFlowDemo" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectReferences = (
@@ -437,7 +444,7 @@
 				INFOPLIST_FILE = "AFOpenFlowDemo-Info.plist";
 				PRODUCT_NAME = AFOpenFlowDemo;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Debug;
 		};
@@ -456,7 +463,7 @@
 				INFOPLIST_FILE = "AFOpenFlowDemo-Info.plist";
 				PRODUCT_NAME = AFOpenFlowDemo;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Release;
 		};
@@ -464,13 +471,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Douglas Pope (JWFD2SYM28)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7FFCB3E7-4E86-4F51-A0F8-B4DCAE16B49B";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -479,13 +487,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Douglas Pope (JWFD2SYM28)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7FFCB3E7-4E86-4F51-A0F8-B4DCAE16B49B";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

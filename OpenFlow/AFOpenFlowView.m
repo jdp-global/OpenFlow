@@ -77,6 +77,7 @@ const static CGFloat kReflectionFraction = 0.85;
 	// Set some perspective
 	CATransform3D sublayerTransform = CATransform3DIdentity;
 	sublayerTransform.m34 = -0.01;
+	
 	[scrollView.layer setSublayerTransform:sublayerTransform];
 
 	flipViewShown = nil;
@@ -129,18 +130,22 @@ const static CGFloat kReflectionFraction = 0.85;
 	newPosition.y = halfScreenHeight + aCover.verticalPosition;
 	if (coverNumber < selectedIndex) {
 		newPosition.x -= CENTER_COVER_OFFSET;
-		newTransform = leftTransform;
+		newTransform = leftTransform;	
+		
 	} else if (coverNumber > selectedIndex) {
 		newPosition.x += CENTER_COVER_OFFSET;
 		newTransform = rightTransform;
 	} else {
 		newZPosition = 0;
 		newTransform = CATransform3DIdentity;
+		newTransform.m11 = 1.2;
+		newTransform.m22 = 1.2;
+		
 	}
 
 	if (animated) {
 		[UIView beginAnimations:nil context:nil];
-		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
 		[UIView setAnimationBeginsFromCurrentState:YES];
 	}
 
